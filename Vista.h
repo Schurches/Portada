@@ -1,4 +1,7 @@
 #pragma once
+#include<iostream>
+#include<Windows.h>
+#include<mmsystem.h>
 
 namespace PortadaFE {
 
@@ -8,6 +11,7 @@ namespace PortadaFE {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+
 
 	/// <summary>
 	/// Resumen de Vista
@@ -70,6 +74,7 @@ namespace PortadaFE {
 			this->button1->Size = System::Drawing::Size(322, 86);
 			this->button1->TabIndex = 0;
 			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &Vista::button1_Click);
 			// 
 			// button2
 			// 
@@ -97,6 +102,7 @@ namespace PortadaFE {
 			this->button3->Size = System::Drawing::Size(145, 65);
 			this->button3->TabIndex = 2;
 			this->button3->UseVisualStyleBackColor = false;
+			this->button3->Click += gcnew System::EventHandler(this, &Vista::button3_Click);
 			// 
 			// Vista
 			// 
@@ -116,11 +122,19 @@ namespace PortadaFE {
 		int i = 0;
 #pragma endregion
 	private: System::Void Vista_Load(System::Object^  sender, System::EventArgs^  e) {
+				 PlaySound(TEXT("main.wav"), NULL, SND_ASYNC);
 	}
+
 	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 				 i++;
 				 MessageBox::Show("Pulsa jugar champion x"+i);
 
 	}
+private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Close();
+}
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+			 MessageBox::Show("Esta opcion aun no esta disponible");
+}
 };
 }
